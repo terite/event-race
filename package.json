@@ -1,0 +1,13 @@
+{
+  "name": "event-race",
+  "version": "1.0.0",
+  "author": "David Stensland <me@terite.com>",
+  "description": "Race events with only one winner",
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "1.*"
+  },
+  "license": "MIT"
+}
