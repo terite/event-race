@@ -1,13 +1,23 @@
 {
-  "name": "event-race",
-  "version": "1.0.0",
   "author": "David Stensland <me@terite.com>",
-  "description": "Race events with only one winner",
-  "scripts": {
-    "test": "mocha"
+  "bugs": {
+    "url": "http://github.com/terite/event-race/issues",
+    "email": "me@terite.com"
   },
+  "description": "Race events with only one winner",
   "devDependencies": {
     "mocha": "1.*"
   },
-  "license": "MIT"
+  "homepage": "http://github.com/terite/event-race",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "event-race",
+  "repository": {
+      "type": "git",
+      "url": "http://github.com/terite/event-race.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "version": "1.0.0"
 }
