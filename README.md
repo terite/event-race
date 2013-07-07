@@ -40,8 +40,7 @@ app.post('/sayhello', function (req, res) {
 
 ### Examples
 
-1. Pass it an emitter, an array of event names, and a single handler.
-
+**1. `race(emitter, event_names_array, handler)`**
 ```js
 var race = require('event-race'),
     stream = net.connect(1337, 'example-host');
@@ -54,8 +53,7 @@ race(stream, ['connect', 'error'], function (winner, args) {
     }
 });
 ```
-
-2. Pass it an emitter and an object in the format {name: handler}
+**2. `race(emitter, event_names_and_handlers_object)`**
 
 ```js
 var race = require('event-race'),
