@@ -35,6 +35,7 @@ app.post('/sayhello', function (req, res) {
             res.send(500, 'error connecting');
         }
     });
+});
 ```
 
 ### Examples
