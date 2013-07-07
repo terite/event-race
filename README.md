@@ -39,7 +39,9 @@ app.post('/sayhello', function (req, res) {
 ```
 
 ### Examples
+
 1. Pass it an emitter, an array of event names, and a single handler.
+
 ```js
 var race = require('event-race'),
     stream = net.connect(1337, 'example-host');
