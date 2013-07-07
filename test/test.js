@@ -32,4 +32,27 @@ describe('Event race', function () {
       done();
     });
   });
+
+  it('less-boilerplate way should work', function (done) {
+    var ee = new EventEmitter;
+    race(ee, {
+      foo: function () {
+        assert.fail('foo called', 'bar called');
+      },
+      bar: function (one, two) {
+        assert.equal(one, 1);
+        assert.equal(two, 2);
+        done();
+      },
+      baz: function () {
+        assert.fail('baz called', 'bar called');
+      }
+    });
+
+    process.nextTick(function () {
+      ee.emit('bar', 1, 2);
+      ee.emit('foo', 1, 2);
+      ee.emit('baz', 1, 2);
+    });
+  });
 });
