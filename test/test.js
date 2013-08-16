@@ -55,4 +55,24 @@ describe('Event race', function () {
       ee.emit('baz', 1, 2);
     });
   });
+
+  it('should keep racing sometimes', function (done) {
+    var ee = new EventEmitter;
+    var first_was_called = false;
+    race(ee, {
+      first: function () {
+        first_was_called = true;
+        return 'keep racing';
+      },
+      second: function () {
+        assert(first_was_called);
+        done();
+      }
+    });
+
+    process.nextTick(function() {
+      ee.emit('first');
+      ee.emit('second');
+    });
+  });
 });

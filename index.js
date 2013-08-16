@@ -21,8 +21,8 @@ function event_race_1(emitter, events, callback) {
   var handlers = {};
   events.forEach(function (e) {
     handlers[e] = function () {
-      removeListeners(emitter, handlers);
-      callback.call(this, e, Array.prototype.slice.call(arguments, 0));
+      var result = callback.call(this, e, Array.prototype.slice.call(arguments, 0));
+      if (result != 'keep raceing') removeListeners(emitter, handlers);
     };
     emitter.on(e, handlers[e]);
   });
@@ -33,8 +33,8 @@ function event_race_2(emitter, events) {
   Object.keys(events).forEach(function (e) {
     var eh = events[e];
     handlers[e] = function () {
-      removeListeners(emitter, handlers);
-      eh.apply(this, arguments);
+      var result = eh.apply(this, arguments);
+      if (result != 'keep racing') removeListeners(emitter, handlers);
     };
     emitter.on(e, handlers[e]);
   });
